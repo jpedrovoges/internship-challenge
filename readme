@@ -1,0 +1,83 @@
+# 🧮 Projeto Calculadora de Divisores de Inteiros
+
+Este é um projeto simples que demonstra a integração de uma aplicação Frontend construída com **React** e uma API Backend desenvolvida em **Django**. O objetivo principal é calcular o **Menor Múltiplo Comum (MMC)** de todos os números dentro de um intervalo definido pelo usuário.
+
+## 🚀 Tecnologias Utilizadas
+
+| Componente | Tecnologia | Descrição |
+| :--- | :--- | :--- |
+| **Frontend** | React | Criação da interface do usuário, validação de inputs e requisições à API. |
+| **Backend** | Django & DRF (Django REST Framework) | Desenvolvimento da API RESTful e implementação da lógica de cálculo do MMC. |
+| **Estilização** | CSS Puro | Estilização limpa e focada na funcionalidade. |
+
+## ⚙️ Como Rodar o Projeto Localmente
+
+Siga os passos abaixo para configurar e rodar o Backend (Django) e o Frontend (React) em sua máquina.
+
+### Pré-requisitos
+Certifique-se de ter instalado:
+* [Python 3.x](https://www.python.org/downloads/)
+* [Node.js e npm](https://nodejs.org/en/download/)
+
+### 1. Configuração do Backend (Django)
+
+No diretório raiz do projeto (`internship-challenge`):
+
+1.  **Ative o Ambiente Virtual:**
+    ```bash
+    # No Windows (use CMD ou PowerShell)
+    venv\Scripts\activate
+    
+    # No Linux/macOS
+    source venv/bin/activate
+    ```
+
+2.  **Instale as Dependências (se ainda não o fez):**
+    ```bash
+    pip install django djangorestframework django-cors-headers
+    ```
+
+3.  **Inicie o Servidor:**
+    ```bash
+    cd backend
+    python manage.py runserver
+    ```
+    O backend estará rodando em `http://127.0.0.1:8000/`.
+
+### 2. Configuração do Frontend (React)
+
+Em uma **nova janela de terminal** (deixe o backend rodando):
+
+1.  **Navegue até a pasta do Frontend:**
+    ```bash
+    cd frontend
+    ```
+
+2.  **Instale as Dependências do Node (se ainda não o fez):**
+    ```bash
+    npm install
+    ```
+
+3.  **Inicie a Aplicação React:**
+    ```bash
+    npm start
+    ```
+    O frontend será aberto automaticamente em `http://localhost:3000/`.
+
+---
+
+## 💡 Demonstração da Lógica Matemática
+
+O cálculo do MMC de um intervalo é feito de forma iterativa, utilizando a relação entre MMC e MDC.
+
+**Fórmula:**
+$$\text{MMC}(a, b) = \frac{|a \cdot b|}{\text{MDC}(a, b)}$$
+
+O cálculo do MMC de um intervalo $[X, Y]$ é o resultado da aplicação sucessiva:
+$$\text{MMC}(X, X+1, \dots, Y) = \text{MMC}(X, \text{MMC}(X+1, \dots, Y))$$
+
+**Exemplo:**
+Para o intervalo de **2 a 4**:
+1. $\text{MMC}(2, 3) = 6$
+2. $\text{MMC}(6, 4) = 12$
+Resultado: **12**
